@@ -96,6 +96,10 @@ function configureRoutes() {
 
 // this routes are used by this application
 function applicationRoutes() {
+    app.get('/teste', (req, res) => {
+        res.json({ "Hello": "World"})
+    });
+
     app.get('/adminApi/usuarios', (req, res) => {
         let retorno = {
             sucesso: false,
