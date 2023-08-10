@@ -51,7 +51,7 @@ let keyCloak = new KeyCloakService(PERMISSIONS);
 
 let adminClient = new AdminClient({
     realm: 'CatiSementesV3',
-    serverUrl: 'http://localhost:8080',
+    serverUrl: 'http://10.153.18.52:8080',
     resource: 'CatiSementesFront',
     adminLogin: 'admin',
     adminPassword: 'admin'
