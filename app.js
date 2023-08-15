@@ -108,6 +108,8 @@ function applicationRoutes() {
         };
 
         adminClient.usersList().then(json => {
+                console.log("Usuario sucesso")
+                console.log(json)
                 retorno.sucesso = true;
                 retorno.dados = json;
                 res.json(retorno);
