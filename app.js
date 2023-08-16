@@ -60,7 +60,7 @@ let adminClient = new AdminClient({
 configureMiddleware();
 configureRoutes();
 
-const server = app.listen(3030, '10.153', function () {
+const server = app.listen(3030, '10.153.18.45', function () {
     const port = server.address().port;
     console.log('App listening at port %s', port);
 });
