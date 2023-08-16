@@ -60,7 +60,7 @@ let adminClient = new AdminClient({
 configureMiddleware();
 configureRoutes();
 
-const server = app.listen(3030, '10.153.18.45', function () {
+const server = app.listen(3030, '10.153', function () {
     const port = server.address().port;
     console.log('App listening at port %s', port);
 });
@@ -97,7 +97,7 @@ function configureRoutes() {
 // this routes are used by this application
 function applicationRoutes() {
     app.get('/teste', (req, res) => {
-        res.json({ "Hello": "World"})
+        res.json({ "Hello": "World 160823 0758"})
     });
 
     app.get('/adminApi/usuarios', (req, res) => {
