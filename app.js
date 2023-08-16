@@ -209,7 +209,7 @@ function renderAdminClient(res, result) {
 }
 
 function showResult(req, res){
-    res.end(JSON.stringify({teste: 'teste'}));
+    res.end(JSON.stringify({ "Hello": "World 160823 0758"}));
 }
 
 function showUrl(req, res) {
