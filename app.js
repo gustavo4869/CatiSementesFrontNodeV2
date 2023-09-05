@@ -51,7 +51,7 @@ let keyCloak = new KeyCloakService(PERMISSIONS);
 
 let adminClient = new AdminClient({
     realm: 'CatiSementesV3',
-    serverUrl: 'http://10.153.18.52:8080',
+    serverUrl: 'http://10.153.18.63:8080',
     resource: 'CatiSementesFront',
     adminLogin: 'admin',
     adminPassword: 'admin'
@@ -60,7 +60,7 @@ let adminClient = new AdminClient({
 configureMiddleware();
 configureRoutes();
 
-const server = app.listen(3030, '10.153.18.45', function () {
+const server = app.listen(3030, '0.0.0.0', function () {
     const port = server.address().port;
     console.log('App listening at port %s', port);
 });
