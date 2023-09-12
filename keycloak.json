@@ -1,6 +1,6 @@
 {
   "realm": "CatiSementesV3",
-  "auth-server-url": "http://10.153.18.63:8080/",
+  "auth-server-url": "https://10.153.18.63:8443/",
   "ssl-required": "none",
   "resource": "CatiSementesBack",
   "credentials": {
