@@ -51,7 +51,7 @@ let keyCloak = new KeyCloakService(PERMISSIONS);
 
 let adminClient = new AdminClient({
     realm: 'CatiSementesV3',
-    serverUrl: 'http://10.153.18.63:8080',
+    serverUrl: 'http://aut-dev.agricultura.sp.gov.br:8080',
     resource: 'CatiSementesFront',
     adminLogin: 'admin',
     adminPassword: 'admin'
@@ -108,8 +108,6 @@ function applicationRoutes() {
         };
 
         adminClient.usersList().then(json => {
-                console.log("Usuario sucesso")
-                console.log(json)
                 retorno.sucesso = true;
                 retorno.dados = json;
                 res.json(retorno);
