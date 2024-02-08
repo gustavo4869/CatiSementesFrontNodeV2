@@ -23,16 +23,12 @@ const PERMISSIONS = new Permissions([
     ['/reports(*)', 'get', 'res:report', 'scopes:view']
 ]).notProtect(
     '/favicon.ico', // just to not log requests
-    '/login(*)',
     '/accessDenied',
-    '/adminClient',
     '/adminApi(*)',
     '/adminApi/*',
+    '/AdminApi(*)',
+    '/AdminApi/*',
     '/teste',
-
-    /**
-     * It is protected because of we need an access token. Better to move it to the protected area.
-     */
     '/permissions',
     '/checkPermission'
 );
@@ -49,12 +45,22 @@ app.engine('html', hogan);
 
 let keyCloak = new KeyCloakService(PERMISSIONS);
 
+/*
 let adminClient = new AdminClient({
     realm: 'CatiSementesV3',
     serverUrl: 'http://aut-dev.agricultura.sp.gov.br:8080',
     resource: 'CatiSementesFront',
-    adminLogin: 'admin',
-    adminPassword: 'admin'
+    adminLogin: 'catiadmin',
+    adminPassword: 'CatiAdmin'
+});
+*/
+
+let adminClient = new AdminClient({
+    realm: 'CatiSementesV3',
+    serverUrl: 'http://aut-hml.agricultura.sp.gov.br:8080',
+    resource: 'CatiSementesFront',
+    adminLogin: 'cs-apifront-hml',
+    adminPassword: 'E@462zhk'
 });
 
 configureMiddleware();
@@ -97,7 +103,7 @@ function configureRoutes() {
 // this routes are used by this application
 function applicationRoutes() {
     app.get('/teste', (req, res) => {
-        res.json({ "Hello": "World 160823 0758"})
+        res.json({ "Hello": "World 23/01/24 1713"})
     });
 
     app.get('/adminApi/usuarios', (req, res) => {
@@ -207,7 +213,7 @@ function renderAdminClient(res, result) {
 }
 
 function showResult(req, res){
-    res.end(JSON.stringify({ "Hello": "World 160823 0758"}));
+    res.end(JSON.stringify({ "Hello": "World 23/01/24 1713"}));
 }
 
 function showUrl(req, res) {
