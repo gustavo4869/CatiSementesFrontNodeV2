@@ -103,7 +103,7 @@ function configureRoutes() {
 // this routes are used by this application
 function applicationRoutes() {
     app.get('/teste', (req, res) => {
-        res.json({ "Hello": "World 23/01/24 1713"})
+        res.json({ "Hello": "World 26/02/24 1329"})
     });
 
     app.get('/adminApi/usuarios', (req, res) => {
@@ -116,6 +116,24 @@ function applicationRoutes() {
         adminClient.usersList().then(json => {
                 retorno.sucesso = true;
                 retorno.dados = json;
+                res.json(retorno);
+            }).catch(error => {
+                retorno.sucesso = false;
+                retorno.mensagem = error;
+                res.end(retorno);
+            });
+    });
+
+    app.post('/adminApi/atualizarSenha', (req, res) => {
+        let retorno = {
+            sucesso: false,
+            mensagem: ""
+        };
+
+        let user = req.body.id;
+        let redirectUri = req.body.redirectUri;
+        adminClient.resetPasswordEmail(user, redirectUri).then(json => {
+                retorno.sucesso = true;
                 res.json(retorno);
             }).catch(error => {
                 retorno.sucesso = false;
@@ -213,7 +231,7 @@ function renderAdminClient(res, result) {
 }
 
 function showResult(req, res){
-    res.end(JSON.stringify({ "Hello": "World 23/01/24 1713"}));
+    res.end(JSON.stringify({ "Hello": "World 26/02/24 1329"}));
 }
 
 function showUrl(req, res) {
